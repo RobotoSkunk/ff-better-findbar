@@ -5,7 +5,7 @@
 	--var-findbar-position-bottom: 15px;
 	--var-findbar-position-left: 50%;
 	--var-findbar-position-right: auto;
-	--var-findbar-background-color: var(--zen-colors-primary, --sidebar-background-color);
+	--var-findbar-background-color: var(--zen-colors-primary, var(--toolbar-bgcolor, #101010));
 	--var-findbar-text-color: var(--toolbar-color, currentColor);
 	--var-findbar-box-shadow: 0 5px 10px #00000080;
 }
