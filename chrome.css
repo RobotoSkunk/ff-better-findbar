@@ -1,65 +1,91 @@
-
 :root {
-	--better-findbar-transform-translateY: 150px;
-	--better-findbar-transform-translateX: -50%;
-	--better-findbar-position-top: auto;
-	--better-findbar-position-bottom: 15px;
-	--better-findbar-position-left: 50%;
-	--better-findbar-position-right: auto;
-	--better-findbar-background-color: var(--zen-colors-primary);
-	--better-findbar-text-color: var(--toolbar-color);
-	--better-findbar-box-shadow: 0 5px 10px #00000080;
+	--var-findbar-transform-translateY: 150px;
+	--var-findbar-transform-translateX: -50%;
+	--var-findbar-position-top: auto;
+	--var-findbar-position-bottom: 15px;
+	--var-findbar-position-left: 50%;
+	--var-findbar-position-right: auto;
+	--var-findbar-background-color: var(--zen-colors-primary, --sidebar-background-color);
+	--var-findbar-text-color: var(--toolbar-color, currentColor);
+	--var-findbar-box-shadow: 0 5px 10px #00000080;
 }
 
 /* Custom background */
-@media (-moz-bool-pref: "theme-better_find_bar-enable_custom_background") {
+@media (-moz-pref("better_findbar.enable_custom_background", true)) {
 	:root {
-		--better-findbar-background-color: var(--theme-better_find_bar-custom_background);
+		--var-findbar-background-color: var(--better_findbar-custom_background);
 	}
 }
 
 /* Custom text color */
-@media (-moz-bool-pref: "theme-better_find_bar-enable_custom_text_color") {
+@media (-moz-pref("better_findbar.enable_custom_text_color", true)) {
 	:root {
-		--better-findbar-text-color: var(--theme-better_find_bar-custom_text_color);
+		--var-findbar-text-color: var(--better_findbar-custom_text_color);
 	}
 }
 
 /* Custom box shadow */
-@media (-moz-bool-pref: "theme-better_find_bar-enable_custom_box_shadow") {
+@media (-moz-pref("better_findbar.enable_custom_box_shadow", true)) {
 	:root {
-		--better-findbar-box-shadow: var(--theme-better_find_bar-custom_box_shadow);
+		--var-findbar-box-shadow: var(--better_findbar-custom_box_shadow);
 	}
 }
+
+/* Horizontal Position */
+@media (-moz-pref("better_findbar.horizontal_position", "left")) {
+	:root {
+		--var-findbar-transform-translateX: 0%;
+		--var-findbar-position-left: 15px;
+		--var-findbar-position-right: auto;
+	}
+}
+
+@media (-moz-pref("better_findbar.horizontal_position", "right")) {
+	:root {
+		--var-findbar-transform-translateX: 0%;
+		--var-findbar-position-left: auto;
+		--var-findbar-position-right: 15px;
+	}
+}
+
+/* Vertical Position */
+@media (-moz-pref("better_findbar.vertical_position", "top")) {
+	:root {
+		--var-findbar-transform-translateY: -150px;
+		--var-findbar-position-bottom: auto;
+		--var-findbar-position-top: 15px;
+	}
+}
+
 
 findbar {
 	display: flex !important;
 
-	border-radius: var(--zen-border-radius) !important;
+	border-radius: var(--zen-border-radius, 8px) !important;
 	margin: 0px !important;
 
 	width: 90% !important;
-	max-width: calc(var(--theme-better_find_bar-textbox_width) * 1px); 
+	max-width: calc(var(--better_findbar-textbox_width) * 1px); 
 
 	height: auto !important;
 
 	position: absolute !important;
-	top: var(--better-findbar-position-top);
-	bottom: var(--better-findbar-position-bottom);
-	left: var(--better-findbar-position-left);
-	right: var(--better-findbar-position-right);
-	transform: translateX(var(--better-findbar-transform-translateX)) translateY(0);
+	top: var(--var-findbar-position-top);
+	bottom: var(--var-findbar-position-bottom);
+	left: var(--var-findbar-position-left);
+	right: var(--var-findbar-position-right);
+	transform: translateX(var(--var-findbar-transform-translateX)) translateY(0);
 
 	overflow: unset !important;
-	box-shadow: var(--better-findbar-box-shadow);
+	box-shadow: var(--var-findbar-box-shadow);
 
-	background: var(--better-findbar-background-color) !important;
-	color: var(--better-findbar-text-color) !important;
+	background: var(--var-findbar-background-color) !important;
+	color: var(--var-findbar-text-color) !important;
 	border: 1px solid
 		color-mix(
 			in hsl,
-			var(--better-findbar-background-color) 75%,
-			var(--better-findbar-text-color)
+			var(--var-findbar-background-color) 75%,
+			var(--var-findbar-text-color)
 		) !important;
 
 	transition: transform 0.35s ease !important;
@@ -80,19 +106,19 @@ findbar {
 
 		& .findbar-textbox {
 			flex-grow: 1;
-			background: var(--better-findbar-background-color) !important;
-			color: var(--better-findbar-text-color) !important;
+			background: var(--var-findbar-background-color) !important;
+			color: var(--var-findbar-text-color) !important;
 			border: 1px solid
 				color-mix(
 					in hsl,
-					var(--better-findbar-background-color),
-					var(--better-findbar-text-color) 50%
+					var(--var-findbar-background-color),
+					var(--var-findbar-text-color) 50%
 				) !important;
 
 			&[status="notfound"] {
 				background-color: color-mix(
 					in srgb,
-					var(--better-findbar-background-color),
+					var(--var-findbar-background-color),
 					#e80538 50%
 				) !important;
 				color: inherit;
@@ -103,143 +129,99 @@ findbar {
 			outline: 1px solid
 				color-mix(
 					in hsl,
-					var(--better-findbar-background-color),
-					var(--better-findbar-text-color) 75%
+					var(--var-findbar-background-color),
+					var(--var-findbar-text-color) 75%
 				) !important;
 			outline-offset: -1px !important;
 		}
 	}
 
 	&[hidden] {
-		transform: translateX(var(--better-findbar-transform-translateX)) translateY(var(--better-findbar-transform-translateY));
+		transform: translateX(var(--var-findbar-transform-translateX)) translateY(var(--var-findbar-transform-translateY));
 	}
 
 	@starting-style {
-		transform: translateX(var(--better-findbar-transform-translateX)) translateY(var(--better-findbar-transform-translateY));
+		transform: translateX(var(--var-findbar-transform-translateX)) translateY(var(--var-findbar-transform-translateY));
 	}
 }
 
 /* Disable animations */
-@media (-moz-bool-pref: "theme.better_find_bar.instant_animations") {
+@media (-moz-pref("better_findbar.instant_animations", true)) {
 	findbar, findbar .findbar-container {
 		transition: initial !important;
 	}
 }
 
-/* Horizontal Position */
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-horizontal_position="left"]
-	) {
-	--better-findbar-transform-translateX: 0%;
-	--better-findbar-position-left: 15px;
-	--better-findbar-position-right: auto;
-}
-
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-horizontal_position="right"]
-	) {
-	--better-findbar-transform-translateX: 0%;
-	--better-findbar-position-left: auto;
-	--better-findbar-position-right: 15px;
-}
-
-/* Vertical Position */
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-vertical_position="top"]
-	) {
-	--better-findbar-transform-translateY: -150px;
-	--better-findbar-position-bottom: auto;
-	--better-findbar-position-top: 15px;
-}
-
-
 /* Background blur */
-@media (-moz-bool-pref: "theme.better_find_bar.transparent_background") {
-	findbar,
-	findbar .findbar-textbox:not([status="notfound"]) {
+@media (-moz-pref("better_findbar.transparent_background", true)) {
+	findbar, findbar .findbar-textbox:not([status="notfound"]) {
 		backdrop-filter: blur(8px);
 
-		background: color-mix(in hsl, var(--better-findbar-background-color), transparent 10%) !important;
+		background: color-mix(in hsl, var(--var-findbar-background-color), transparent 10%) !important;
 	}
 }
 
 /* Hide highlight checkbox */
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-hide_highlight="hide_immediately"]
-	) {
+@media (-moz-pref("better_findbar.hide_highlight", "hide_immediately")) {
 	findbar .findbar-highlight {
 		display: none !important;
 	}
 }
 
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-hide_highlight="hide_on_disable"]
-	) {
-	findbar checkbox.findbar-highlight:not([checked]) {
+@media (-moz-pref("better_findbar.hide_highlight", "hide_on_disable")) {
+	findbar .findbar-highlight:not([checked]) {
 		display: none !important;
 	}
 }
 
 /* Hide match case checkbox */
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-hide_match_case="hide_immediately"]
-	) {
+@media (-moz-pref("better_findbar.hide_match_case", "hide_immediately")) {
 	findbar .findbar-case-sensitive {
 		display: none !important;
 	}
 }
 
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-hide_match_case="hide_on_disable"]
-	) {
-	findbar checkbox.findbar-case-sensitive:not([checked]) {
+@media (-moz-pref("better_findbar.hide_match_case", "hide_on_disable")) {
+	findbar .findbar-case-sensitive:not([checked]) {
 		display: none !important;
 	}
 }
 
 /* Hide match diacritics checkbox */
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-hide_match_diacritics="hide_immediately"]
-	) {
+@media (-moz-pref("better_findbar.hide_match_diacritics", "hide_immediately")) {
 	findbar .findbar-match-diacritics {
 		display: none !important;
 	}
 }
 
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-hide_match_diacritics="hide_on_disable"]
-	) {
-	findbar checkbox.findbar-match-diacritics:not([checked]) {
+@media (-moz-pref("better_findbar.hide_match_diacritics", "hide_on_disable")) {
+	findbar .findbar-match-diacritics:not([checked]) {
 		display: none !important;
 	}
 }
 
 /* Hide whole words checkbox */
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-hide_whole_words="hide_immediately"]
-	) {
+@media (-moz-pref("better_findbar.hide_whole_words", "hide_immediately")) {
 	findbar .findbar-entire-word {
 		display: none !important;
 	}
 }
 
-body:has(
-		#theme-Better-Find-Bar[theme-better_find_bar-hide_whole_words="hide_on_disable"]
-	) {
+@media (-moz-pref("better_findbar.hide_whole_words", "hide_on_disable")) {
 	findbar .findbar-entire-word:not([checked]) {
 		display: none !important;
 	}
 }
 
 /* Hide find status label */
-@media (-moz-bool-pref: "theme.better_find_bar.hide_find_status") {
+@media (-moz-pref("better_findbar.hide_find_status", true)) {
 	findbar .findbar-find-status {
 		display: none !important;
 	}
 }
 
 /* Hide found matches label */
-@media (-moz-bool-pref: "theme.better_find_bar.hide_found_matches") {
+@media (-moz-pref("better_findbar.hide_found_matches", true)) {
 	findbar .findbar-label.found-matches {
 		display: none !important;
 	}
