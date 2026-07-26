@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/RobotoSkunk/zen-better-findbar",
 	"image": "https://raw.githubusercontent.com/RobotoSkunk/ff-better-findbar/refs/heads/main/image.png",
 	"style": {
-		"chrome": "chrome.css"
+		"chrome": "userChrome.css"
 	},
 	"preferences": "preferences.json",
 	"readme": "https://raw.githubusercontent.com/RobotoSkunk/ff-better-findbar/refs/heads/main/README.md",
