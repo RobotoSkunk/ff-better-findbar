@@ -25,6 +25,9 @@
 	"updatedAt": "2026-07-25",
 	"fork": [
 		"zen",
-		"floorp"
+		"floorp",
+		"firefox",
+		"librewolf",
+		"mullvad"
 	]
 }
