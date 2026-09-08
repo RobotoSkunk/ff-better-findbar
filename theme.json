@@ -10,7 +10,7 @@
 	"preferences": "preferences.json",
 	"readme": "https://raw.githubusercontent.com/RobotoSkunk/ff-better-findbar/refs/heads/main/README.md",
 	"author": "RobotoSkunk",
-	"version": "1.7.0",
+	"version": "1.7.1",
 	"tags": [
 		"better",
 		"find",
@@ -22,7 +22,7 @@
 		"search-bar"
 	],
 	"createdAt": "2024-11-24",
-	"updatedAt": "2026-07-25",
+	"updatedAt": "2026-09-8",
 	"fork": [
 		"zen",
 		"floorp",
