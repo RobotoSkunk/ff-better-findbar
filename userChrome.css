@@ -69,7 +69,7 @@ findbar {
 
 	height: auto !important;
 
-	position: absolute !important;
+	position: fixed !important;
 	top: var(--var-findbar-position-top);
 	bottom: var(--var-findbar-position-bottom);
 	left: var(--var-findbar-position-left);
