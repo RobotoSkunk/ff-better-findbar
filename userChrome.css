@@ -6,8 +6,14 @@
 	--var-findbar-position-left: 50%;
 	--var-findbar-position-right: auto;
 	--var-findbar-background-color: var(--zen-colors-primary, var(--toolbar-bgcolor, #101010));
-	--var-findbar-text-color: var(--toolbar-color, currentColor);
+	--var-findbar-text-color: #ffffff;
 	--var-findbar-box-shadow: 0 5px 10px #00000080;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--var-findbar-text-color: #000000;
+	}
 }
 
 /* Custom background */
@@ -108,12 +114,14 @@ findbar {
 			flex-grow: 1;
 			background: var(--var-findbar-background-color) !important;
 			color: var(--var-findbar-text-color) !important;
-			border: 1px solid
+			font-weight: 500;
+			border: 2px solid
 				color-mix(
 					in hsl,
 					var(--var-findbar-background-color),
 					var(--var-findbar-text-color) 50%
 				) !important;
+			padding: 8px 10px !important;
 
 			&[status="notfound"] {
 				background-color: color-mix(
