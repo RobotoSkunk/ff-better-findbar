@@ -1,12 +1,12 @@
 :root {
-	--var-findbar-transform-translateY: 150px;
+	--var-findbar-transform-translateY: 48px;
 	--var-findbar-transform-translateX: -50%;
 	--var-findbar-position-top: auto;
 	--var-findbar-position-bottom: 15px;
 	--var-findbar-position-left: 50%;
 	--var-findbar-position-right: auto;
 	--var-findbar-background-color: var(--zen-colors-primary, var(--toolbar-bgcolor, #101010));
-	--var-findbar-text-color: var(--toolbar-color, currentColor);
+	--var-findbar-text-color: var(--zen-colors-primary-foreground, currentColor);
 	--var-findbar-box-shadow: 0 5px 10px #00000080;
 }
 
@@ -51,7 +51,7 @@
 /* Vertical Position */
 @media (-moz-pref("better_findbar.vertical_position", "top")) {
 	:root {
-		--var-findbar-transform-translateY: -150px;
+		--var-findbar-transform-translateY: -48px;
 		--var-findbar-position-bottom: auto;
 		--var-findbar-position-top: 15px;
 	}
@@ -84,14 +84,15 @@ findbar {
 	border: 1px solid
 		color-mix(
 			in hsl,
-			var(--var-findbar-background-color) 75%,
+			var(--var-findbar-background-color) 50%,
 			var(--var-findbar-text-color)
 		) !important;
 
-	transition: transform 0.35s ease !important;
+	transition: transform 0.35s ease, opacity 0.35s ease !important;
 
 	visibility: visible !important;
 	opacity: 1 !important;
+	z-index: 20 !important;
 
 	& .findbar-container {
 		flex-wrap: wrap;
@@ -119,7 +120,7 @@ findbar {
 				background-color: color-mix(
 					in srgb,
 					var(--var-findbar-background-color),
-					#e80538 50%
+					#e80538 24%
 				) !important;
 				color: inherit;
 			}
@@ -135,9 +136,18 @@ findbar {
 			outline-offset: -1px !important;
 		}
 	}
+	
+	& .findbar-closebutton {
+		width: 28px !important;
+		height: 28px !important;
+		margin: 0 !important;
+		margin-right: 8px !important;
+	}
 
 	&[hidden] {
 		transform: translateX(var(--var-findbar-transform-translateX)) translateY(var(--var-findbar-transform-translateY));
+		opacity: 0 !important;
+		pointer-events: none;
 	}
 
 	@starting-style {
