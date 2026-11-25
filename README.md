@@ -32,7 +32,7 @@ and paste it to get the latest updates of the mod.
 2. Search "Better Find Bar" in the marketplace search bar and install it.
 ![a](resources/sine-method-2.png)
 
-#### Manual Installation (Traditional Method)
+### Manual Installation (Traditional Method)
 > This method requires a basic understanding of CSS variables to customize the
 > search bar.
 
@@ -67,3 +67,51 @@ CSS variables
     --better_findbar-custom_box_shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 ```
+
+## Common issues
+
+### The find bar shortly appears and then disappears after trying to open it in Zen
+If you installed the mod from the Zen Themes Store, this is why it happens.
+Currently, the Zen Themes Store has a highly outdated version of the mod because
+it got archived, meaning that no one can publish new mods or update current
+ones.
+
+To fix the issue and use the mod, it is suggested to use one of the two methods
+listed above to install the latest version.
+
+If the issue still persists after updating the mod to the latest version, please
+open an issue.
+
+### The text color is unreadable in Zen browser
+The mod uses Zen's primary color for the background and text, which means it is
+tied to whatever Zen considers as the "right color choice" for both the
+background and the text.
+
+If the color contrast is bad, you can change it to a custom color by enabling
+the *"Enable Custom Text Color"* and *"Enable Custom Background Color"*, and
+then changing the values to whatever you want.
+
+The mod will get updated over time to fix the issues with the color contrasts
+as much as it can, but the custom background and text colors should be good
+enough to fix the issues.
+
+### The background blur effect doesn't work
+As part of a Firefox update from last year, the backdrop-filter CSS variable is
+bugged in some operating systems, mainly on *nix-based operating systems.
+
+There's no way to fix the issue, and it's suggested to disable the find bar
+transparency to improve readability until Mozilla fixes the issue.
+
+### The find bar doesn't work properly with this other mod enabled
+Some mods or themes modifies the find bar behavior and style by their own,
+causing compatibility issues with this mod.
+
+Check if the theme having issues with this mod has an option to disable the
+customization of the find bar.
+
+### The find bar can't find some words properly
+This mod just injects some custom CSS rules to improve the default looking of
+Firefox's find bar, and it doesn't change the find bar behavior.
+
+If the find bar can't find some words properly, please report the issue directly
+to Mozilla.
