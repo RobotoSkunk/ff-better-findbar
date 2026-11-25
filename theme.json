@@ -10,7 +10,7 @@
 	"preferences": "preferences.json",
 	"readme": "https://raw.githubusercontent.com/RobotoSkunk/ff-better-findbar/refs/heads/main/README.md",
 	"author": "RobotoSkunk",
-	"version": "1.7.1",
+	"version": "1.8.0",
 	"tags": [
 		"better",
 		"find",
