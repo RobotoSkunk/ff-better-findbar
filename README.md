@@ -2,14 +2,14 @@
 
 Improves the find bar, making it floating with theme match and customization.
 
-![Mod preview showing the Zen Browser with the customized findbar below.](image.png)
-
-## Installation
-
 > ### ⚠️ NOTICE FOR ZEN USERS ⚠️
 > The Zen Store repository has been archived, so I cannot update the mod in the
 > Zen Store. It's recommended using the other methods listed below to install
 > the mod along with its corresponding patches.
+
+![Mod preview showing the Zen Browser with the customized findbar below.](image.png)
+
+## Installation
 
 ### Install Using Sine (Recommended)
 Sine is a community-driven mod/theme manager for all Firefox-based browsers.
